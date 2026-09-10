@@ -1,0 +1,53 @@
+<!-- 카톡·검색 미리보기 이미지(assets/og-cover.png)의 생성기.
+     문구나 사진을 바꾸려면 이 파일을 고친 뒤 아래 명령으로 다시 뽑는다.
+
+     cd tools && python3 -m http.server 8021
+     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless \
+       --disable-gpu --hide-scrollbars --window-size=1200,630 \
+       --virtual-time-budget=12000 --screenshot=../assets/og-cover.png \
+       http://localhost:8021/og-cover.html
+
+     색은 도식도 톤앤매너(네이비 #1B3A5C / 그린 #2E9B75)를 따른다.
+     career 홈페이지의 og-cover(오렌지)와 일부러 다르게 둔다 — 두 페이지는 분리된 자산이다.
+-->
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1200px;height:630px;overflow:hidden;position:relative;
+       font-family:'Noto Sans KR',sans-serif;
+       background:linear-gradient(135deg,#132A43 0%,#1B3A5C 52%,#2E5C8A 100%);
+       display:flex;align-items:center;gap:66px;padding:0 82px;color:#fff}
+  /* 우상단 미세한 격자 — 도식도의 배경 문법 */
+  body::before{content:'';position:absolute;inset:0;opacity:.07;
+       background-image:linear-gradient(rgba(255,255,255,.6) 1px,transparent 1px),
+                        linear-gradient(90deg,rgba(255,255,255,.6) 1px,transparent 1px);
+       background-size:44px 44px}
+  .photo{width:296px;height:396px;flex:none;border-radius:22px;overflow:hidden;position:relative;
+         border:3px solid rgba(46,155,117,.75);box-shadow:0 24px 60px rgba(0,0,0,.45)}
+  .photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .right{position:relative}
+  .tag{font-size:19px;font-weight:700;letter-spacing:.24em;color:#2E9B75;margin-bottom:16px}
+  .tag span{letter-spacing:0;font-size:17px;font-weight:500;color:rgba(255,255,255,.6);margin-left:12px}
+  h1{font-size:64px;font-weight:900;letter-spacing:-.03em;line-height:1.12;margin-bottom:22px}
+  h1 b{color:#5FD3A6;font-weight:900}
+  .rule{width:72px;height:5px;background:#2E9B75;border-radius:3px;margin-bottom:24px}
+  .lead{font-size:27px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.86);
+        word-break:keep-all;margin-bottom:32px}
+  .name{font-size:23px;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:.02em}
+  .chips{display:flex;gap:10px;flex-wrap:wrap}
+  .chip{font-size:18px;font-weight:500;color:rgba(255,255,255,.78);
+        border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:8px 19px}
+</style>
+<div class="photo"><img src="../assets/profile.jpg"></div>
+<div class="right">
+  <div class="tag">FOUNDER<span>예비창업자</span></div>
+  <h1>문제를 아는 사람이<br><b>직접</b> 만듭니다</h1>
+  <div class="rule"></div>
+  <div class="name">신동환</div>
+  <div class="lead">15년의 영업 현장, 3년 7개월의 독학.<br>그리고 제가 첫 사용자인 서비스.</div>
+  <div class="chips">
+    <span class="chip">심혈관 건강관리 구독 서비스</span>
+    <span class="chip">준비 중</span>
+  </div>
+</div>
